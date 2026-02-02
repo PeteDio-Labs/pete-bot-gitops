@@ -5,9 +5,14 @@ namespace: discord-bot
 
 resources:
   - ../../base
+  # External service in separate resource to avoid selector issues
+  - qbittorrent-external-service.yaml
 
-commonLabels:
-  environment: prod
+# Use labels with includeSelectors: false to avoid breaking external services
+labels:
+  - pairs:
+      environment: prod
+    includeSelectors: false
 
 images:
   - name: docker.toastedbytes.com/discord-ai-bot

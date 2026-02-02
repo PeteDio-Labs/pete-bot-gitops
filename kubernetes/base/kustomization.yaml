@@ -9,20 +9,13 @@ resources:
   - deployment.yaml
   - service.yaml
   - servicemonitor.yaml
-  - qbittorrent-external-service.yaml
   - grafana-dashboard-configmap.yaml
   # Sealed secrets for secure credential management
   - sealed-secrets/discord-bot-credentials.yaml
   - sealed-secrets/nexus-registry.yaml
 
-commonLabels:
-  app.kubernetes.io/managed-by: argocd
-
-# Patch to remove selector from external service (prevents auto-discovery of pods)
-patches:
-  - target:
-      kind: Service
-      name: qbittorrent-external
-    patch: |-
-      - op: remove
-        path: /spec/selector
+# Use labels with includeSelectors: false to avoid breaking external services
+labels:
+  - pairs:
+      app.kubernetes.io/managed-by: argocd
+    includeSelectors: false
