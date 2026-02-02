@@ -1,0 +1,31 @@
+# Service and Endpoints to route traffic to external qBittorrent instance on LAN
+# The Service name must match the Endpoints name for Kubernetes to link them
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qbittorrent-external
+  namespace: discord-bot
+  labels:
+    app.kubernetes.io/name: qbittorrent-external
+    app.kubernetes.io/component: external-service
+spec:
+  type: ClusterIP
+  ports:
+    - name: webui
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: qbittorrent-external
+  namespace: discord-bot
+subsets:
+  - addresses:
+      - ip: 192.168.50.21
+    ports:
+      - name: webui
+        port: 8080
+        protocol: TCP

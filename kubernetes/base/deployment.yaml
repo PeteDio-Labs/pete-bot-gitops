@@ -26,6 +26,10 @@ spec:
           envFrom:
             - secretRef:
                 name: discord-bot-credentials
+          env:
+            # Override QBIT_HOST to use internal Kubernetes service that routes to LAN
+            - name: QBIT_HOST
+              value: "http://qbittorrent-external:8080"
           ports:
             - name: metrics
               containerPort: 9090

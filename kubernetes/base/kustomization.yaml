@@ -9,6 +9,8 @@ resources:
   - deployment.yaml
   - service.yaml
   - servicemonitor.yaml
+  - qbittorrent-external-service.yaml
+  - grafana-dashboard-configmap.yaml
   # Sealed secrets for secure credential management
   - sealed-secrets/discord-bot-credentials.yaml
   - sealed-secrets/nexus-registry.yaml
