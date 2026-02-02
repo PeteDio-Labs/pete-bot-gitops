@@ -11,8 +11,7 @@ metadata:
     app.kubernetes.io/component: external-service
 spec:
   type: ClusterIP
-  # No selector - this Service uses manually defined Endpoints
-  selector: {}
+  # No selector field at all - this Service uses manually defined Endpoints
   ports:
     - name: webui
       port: 8080
