@@ -26,6 +26,10 @@ spec:
           envFrom:
             - secretRef:
                 name: discord-bot-credentials
+          ports:
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
           resources:
             requests:
               cpu: 100m
@@ -34,19 +38,15 @@ spec:
               cpu: 500m
               memory: 512Mi
           livenessProbe:
-            exec:
-              command:
-                - node
-                - -e
-                - "process.exit(0)"
+            httpGet:
+              path: /health
+              port: metrics
             initialDelaySeconds: 30
             periodSeconds: 60
           readinessProbe:
-            exec:
-              command:
-                - node
-                - -e
-                - "process.exit(0)"
+            httpGet:
+              path: /health
+              port: metrics
             initialDelaySeconds: 10
             periodSeconds: 30
       restartPolicy: Always
