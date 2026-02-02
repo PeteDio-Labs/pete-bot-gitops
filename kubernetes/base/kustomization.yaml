@@ -17,3 +17,12 @@ resources:
 
 commonLabels:
   app.kubernetes.io/managed-by: argocd
+
+# Patch to remove selector from external service (prevents auto-discovery of pods)
+patches:
+  - target:
+      kind: Service
+      name: qbittorrent-external
+    patch: |-
+      - op: remove
+        path: /spec/selector
