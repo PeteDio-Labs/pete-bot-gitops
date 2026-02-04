@@ -1,3 +1,3 @@
 kustomize:
   images:
-  - docker.toastedbytes.com/discord-ai-bot@sha256:73bf34098b7785ba5e35131040ffc06272a286dc81dfd154a1fbfbb8cc27359f
+  - docker.toastedbytes.com/discord-ai-bot@sha256:fab6e9cb3d3b8adcbf21c19cfada72909d27b6e693afb79bd206894590aa63a8
