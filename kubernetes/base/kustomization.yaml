@@ -8,8 +8,6 @@ resources:
   - namespace.yaml
   - deployment.yaml
   - service.yaml
-  - servicemonitor.yaml
-  - grafana-dashboard-configmap.yaml
   # Sealed secrets for secure credential management
   - sealed-secrets/discord-bot-credentials.yaml
   - sealed-secrets/nexus-registry.yaml
