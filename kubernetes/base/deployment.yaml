@@ -36,6 +36,9 @@ spec:
               value: "http://web-search-service.web-search.svc.cluster.local:3003"
             - name: MISSION_CONTROL_ENABLED
               value: "true"
+            - name: EVENT_STREAM_ENABLED
+              value: "true"
+            # OWNER_USER_ID defaults to first ALLOWED_USER_IDS entry from secret
           ports:
             - name: metrics
               containerPort: 9090
