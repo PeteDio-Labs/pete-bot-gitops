@@ -66,7 +66,7 @@ if [[ -z "$OLLAMA_HOST" ]]; then
 fi
 
 if [[ -z "$OLLAMA_MODEL" ]]; then
-    OLLAMA_MODEL="qwen-tools"
+    OLLAMA_MODEL="qwen2.5:7b"
     echo -e "${YELLOW}Using default OLLAMA_MODEL: $OLLAMA_MODEL${NC}"
 fi
 
