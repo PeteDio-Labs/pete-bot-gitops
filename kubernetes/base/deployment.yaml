@@ -29,9 +29,9 @@ spec:
                 name: pete-bot-credentials
           env:
             - name: MISSION_CONTROL_URL
-              value: "http://mission-control-backend.mission-control.svc.cluster.local:3000"
+              value: "http://mission-control-backend:3000"
             - name: NOTIFICATION_SERVICE_URL
-              value: "http://notification-service.mission-control.svc.cluster.local:3002"
+              value: "http://notification-service:3002"
             - name: WEB_SEARCH_SERVICE_URL
               value: "http://web-search-service.web-search.svc.cluster.local:3003"
             - name: MISSION_CONTROL_ENABLED
